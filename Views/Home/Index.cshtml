@@ -1,0 +1,67 @@
+﻿@{
+    ViewData["Title"] = "Ana Sayfa";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-body text-center">
+                <h1 class="display-4">SignalRDev'e Hoş Geldiniz</h1>
+                <p class="lead">Güvenli ve hızlı mesajlaşma platformuna hoş geldiniz.</p>
+                
+                @if (!User.Identity.IsAuthenticated)
+                {
+                    <div class="mt-4">
+                        <a asp-controller="Account" asp-action="Login" class="btn btn-primary btn-lg mr-3">
+                            <i class="fas fa-sign-in-alt"></i> Giriş Yap
+                        </a>
+                        <a asp-controller="Account" asp-action="Register" class="btn btn-success btn-lg">
+                            <i class="fas fa-user-plus"></i> Kayıt Ol
+                        </a>
+                    </div>
+                    
+                    <div class="row mt-5">
+                        <div class="col-md-4">
+                            <div class="card">
+                                <div class="card-body">
+                                    <i class="fas fa-shield-alt fa-3x text-primary mb-3"></i>
+                                    <h4>Güvenli İletişim</h4>
+                                    <p>Mesajlarınız güvenli bir şekilde iletilir ve saklanır.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card">
+                                <div class="card-body">
+                                    <i class="fas fa-bolt fa-3x text-warning mb-3"></i>
+                                    <h4>Hızlı Mesajlaşma</h4>
+                                    <p>Anlık mesajlaşma ile iletişimde kalın.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card">
+                                <div class="card-body">
+                                    <i class="fas fa-mobile-alt fa-3x text-success mb-3"></i>
+                                    <h4>Mobil Uyumlu</h4>
+                                    <p>Tüm cihazlardan kolayca erişim sağlayın.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+                else
+                {
+                    <div class="mt-4">
+                        <a asp-controller="Message" asp-action="GetMessages" class="btn btn-primary btn-lg mr-3">
+                            <i class="fas fa-envelope"></i> Mesajlarım
+                        </a>
+                        <a asp-controller="Message" asp-action="SendMessage" class="btn btn-success btn-lg">
+                            <i class="fas fa-paper-plane"></i> Yeni Mesaj
+                        </a>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>

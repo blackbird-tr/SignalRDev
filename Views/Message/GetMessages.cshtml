@@ -1,0 +1,84 @@
+@model IEnumerable<SignalRDev.Models.Message>
+
+@{
+    ViewData["Title"] = "Gelen Mesajlar";
+}
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Gelen Mesajlar</h3>
+                <div class="card-tools">
+                    <a asp-action="SendMessage" class="btn btn-primary btn-sm">
+                        <i class="fas fa-paper-plane"></i> Yeni Mesaj
+                    </a>
+                </div>
+            </div>
+            <div class="card-body p-0">
+                @if (Model != null && Model.Any())
+                {
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Başlık</th>
+                                    <th>Gönderen</th>
+                                    <th>Tarih</th>
+                                    <th>İşlemler</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var message in Model)
+                                {
+                                    <tr>
+                                        <td>@message.Title</td>
+                                        <td>@message.SenderId</td>
+                                        <td>@message.CreatedAt.ToString("dd/MM/yyyy HH:mm")</td>
+                                        <td>
+                                            <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#messageModal-@message.Id">
+                                                <i class="fas fa-eye"></i> Görüntüle
+                                            </button>
+                                        </td>
+                                    </tr>
+
+                                    <!-- Message Modal -->
+                                    <div class="modal fade" id="messageModal-@message.Id" tabindex="-1" role="dialog" aria-labelledby="messageModalLabel-@message.Id" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="messageModalLabel-@message.Id">@message.Title</h5>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <p><strong>Gönderen:</strong> @message.SenderId</p>
+                                                    <p><strong>Tarih:</strong> @message.CreatedAt.ToString("dd/MM/yyyy HH:mm")</p>
+                                                    <hr>
+                                                    <p>@message.Body</p>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
+                                                    <a href="@Url.Action("SendMessage", new { receiverId = message.SenderId })" class="btn btn-primary">
+                                                        <i class="fas fa-reply"></i> Yanıtla
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                }
+                else
+                {
+                    <div class="text-center p-3">
+                        <p class="text-muted mb-0">Henüz mesajınız bulunmuyor.</p>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div> 

@@ -1,0 +1,202 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+/* AdminLTE Custom Styles */
+.content-wrapper {
+    background-color: #f4f6f9;
+}
+
+.card {
+    box-shadow: 0 0 1px rgba(0,0,0,.125), 0 1px 3px rgba(0,0,0,.2);
+    margin-bottom: 1rem;
+}
+
+.card-header {
+    background-color: transparent;
+    border-bottom: 1px solid rgba(0,0,0,.125);
+    padding: 0.75rem 1.25rem;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.card-title {
+    float: left;
+    font-size: 1.1rem;
+    font-weight: 400;
+    margin: 0;
+}
+
+/* Login/Register Form Styles */
+.login-box, .register-box {
+    width: 360px;
+    margin: 7% auto;
+}
+
+.login-logo, .register-logo {
+    font-size: 2.1rem;
+    font-weight: 300;
+    margin-bottom: 0.9rem;
+    text-align: center;
+}
+
+.login-logo a, .register-logo a {
+    color: #495057;
+}
+
+.login-card-body, .register-card-body {
+    background-color: #fff;
+    border-top: 0;
+    color: #666;
+    padding: 20px;
+}
+
+.login-box-msg, .register-box-msg {
+    margin: 0;
+    padding: 0 20px 20px 20px;
+    text-align: center;
+}
+
+/* Message List Styles */
+.message-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.message-item {
+    padding: 15px;
+    border-bottom: 1px solid #f4f4f4;
+    transition: background-color 0.3s ease;
+}
+
+.message-item:hover {
+    background-color: #f8f9fa;
+}
+
+.message-title {
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.message-meta {
+    font-size: 0.85rem;
+    color: #6c757d;
+}
+
+.message-body {
+    margin-top: 10px;
+    color: #666;
+}
+
+/* Form Styles */
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-control {
+    display: block;
+    width: 100%;
+    height: calc(2.25rem + 2px);
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.form-control:focus {
+    color: #495057;
+    background-color: #fff;
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+}
+
+/* Button Styles */
+.btn-primary {
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.btn-primary:hover {
+    color: #fff;
+    background-color: #0069d9;
+    border-color: #0062cc;
+}
+
+.btn-block {
+    display: block;
+    width: 100%;
+}
+
+/* Alert Styles */
+.alert {
+    position: relative;
+    padding: 0.75rem 1.25rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+}
+
+.alert-danger {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+}
+
+.alert-success {
+    color: #155724;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+}
+
+/* Validation Styles */
+.text-danger {
+    color: #dc3545;
+}
+
+.field-validation-error {
+    color: #dc3545;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .login-box, .register-box {
+        width: 90%;
+        margin-top: 20px;
+    }
+    
+    .main-sidebar {
+        padding-top: 0;
+    }
+}
