@@ -10,26 +10,18 @@ Bu proje, ASP.NET Core MVC ve SignalR'ın muhteşem uyumunu kullanarak geliştir
 
 ## 📱 Özellikler
 
-* **⚡ Gerçek Zamanlı Mesajlaşma:** SignalR ile mesajlarınız anında alıcısına ulaşır. Gecikme derdi yok!
-    ![Real-time Icon](https://img.icons8.com/nolan/96/real-time.png)
+* **⚡ Gerçek Zamanlı Mesajlaşma:** SignalR ile mesajlarınız anında alıcısına ulaşır. Gecikme derdi yok! 
 
-* **🗣️ Birebir Mesajlaşma:** Sistemdeki diğer kullanıcılarla güvenli ve özel birebir sohbetler yapın.
-    ![Private Chat Icon](https://img.icons8.com/nolan/96/user.png)
+* **🗣️ Birebir Mesajlaşma:** Sistemdeki diğer kullanıcılarla güvenli ve özel birebir sohbetler yapın. 
 
-* **👥 Grup Oluşturma ve Yönetimi:** Kendi gruplarınızı kurun, üye ekleyin veya ayrılın. Grup yöneticileri (adminler) üyeleri çıkarabilir veya başkalarını admin yapabilir.
-    ![Group Chat Icon](https://img.icons8.com/nolan/96/user-groups.png)
+* **👥 Grup Oluşturma ve Yönetimi:** Kendi gruplarınızı kurun, üye ekleyin veya ayrılın. Grup yöneticileri (adminler) üyeleri çıkarabilir veya başkalarını admin yapabilir. 
 
-* **💬 Grup Sohbeti:** Gruplarınızda anlık toplu mesajlaşmanın tadını çıkarın. Tüm grup üyeleri mesajlarınıza anında erişir.
-    ![Chat Bubble Icon](https://img.icons8.com/nolan/96/chat-bubble.png)
+* **💬 Grup Sohbeti:** Gruplarınızda anlık toplu mesajlaşmanın tadını çıkarın. Tüm grup üyeleri mesajlarınıza anında erişir. 
+* **🟢 Online Kullanıcı Takibi:** Kimlerin online olduğunu gerçek zamanlı görün. Online kullanıcılar yeşil bir simgeyle gösterilir. 
 
-* **🟢 Online Kullanıcı Takibi:** Kimlerin online olduğunu gerçek zamanlı görün. Online kullanıcılar yeşil bir simgeyle gösterilir.
-    ![Online Status Icon](https://img.icons8.com/nolan/96/online-user.png)
+* **🔒 Kullanıcı Kimlik Doğrulama:** ASP.NET Identity ile kullanıcı kaydı, girişi ve kimlik doğrulama işlemleri güvenli bir şekilde yapılır. 
 
-* **🔒 Kullanıcı Kimlik Doğrulama:** ASP.NET Identity ile kullanıcı kaydı, girişi ve kimlik doğrulama işlemleri güvenli bir şekilde yapılır.
-    ![Security Icon](https://img.icons8.com/nolan/96/lock--v1.png)
-
-* **🎨 Kullanıcı Arayüzü:** Modern ve kullanıcı dostu arayüzümüzle mesajlaşmak, grupları ve kullanıcıları yönetmek çok kolay!
-    ![UI Icon](https://img.icons8.com/nolan/96/monitor.png)
+* **🎨 Kullanıcı Arayüzü:** Modern ve kullanıcı dostu arayüzümüzle mesajlaşmak, grupları ve kullanıcıları yönetmek çok kolay! 
 
 ---
 
