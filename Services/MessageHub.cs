@@ -28,27 +28,6 @@ namespace SignalRDev.Services
             return base.OnDisconnectedAsync(exception);
         }
 
-        public async Task SendPrivateMessage(string toUserId, string message)
-        {
-            var connId = _messageServices.GetConnectionId(toUserId);
-            if (connId != null)
-            {
-                await Clients.Client(connId).SendAsync("ReceiveMessage", "Server", message);
-            }
-        }
-        public async Task GetOnlineUsers()
-        {
-            var onlineUsers = _messageServices.GetOnlineUsers();
-            await Clients.Caller.SendAsync("ReceiveOnlineUsers", onlineUsers);
-        }
-
-        public async Task SendMessageToUser(string toUserId, string fromUserId, string message)
-        {
-            var connId = _messageServices.GetConnectionId(toUserId);
-            if (!string.IsNullOrWhiteSpace(connId))
-            {
-                await Clients.Client(connId).SendAsync("ReceivePrivateMessage", fromUserId, message);
-            }
-        }
+        
     }
 }

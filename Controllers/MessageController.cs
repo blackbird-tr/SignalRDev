@@ -67,7 +67,7 @@ namespace SignalRDev.Controllers
 
                 _context.Messages.Add(message);
                 await _context.SaveChangesAsync();
-
+                
                 var connId = _messageServices.GetConnectionId(model.ReceiverId);
                 if (!string.IsNullOrWhiteSpace(connId))
                 {

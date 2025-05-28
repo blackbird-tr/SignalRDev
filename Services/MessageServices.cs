@@ -6,33 +6,42 @@ namespace SignalRDev.Services
         public class MessageServices
         {
             // Thread-safe sözlük ile userId <-> connectionId eşlemesi tutuyoruz
-            private static ConcurrentDictionary<string, string> userConnections = new(); 
+            public static ConcurrentDictionary<string, List<string>> userConnections = new(); 
+
             public void AddConnection(string userId, string connectionId)
+            { 
+
+            if (userConnections.ContainsKey(userId)) { 
+                 userConnections[userId].Add(connectionId);
+            }
+            else
             {
-                userConnections[userId] = connectionId;
+                userConnections.TryAdd(userId, new List<string> { connectionId });
+
+            }
             }
 
-            public void RemoveConnection(string connectionId)
+        public void RemoveConnection(string connectionId)
+        {
+            foreach (var pair in userConnections)
             {
-                var user = userConnections.FirstOrDefault(x => x.Value == connectionId).Key;
-                if (!string.IsNullOrEmpty(user))
+                if (pair.Value.Contains(connectionId))
                 {
-                    userConnections.TryRemove(user, out _);
+                    pair.Value.Remove(connectionId);
+
+                    if (pair.Value.Count == 0)
+                    {
+                        userConnections.TryRemove(pair.Key, out _);
+                    }
+                    break;
                 }
             }
+        }
 
-            public string? GetConnectionId(string userId)
-            {
-                userConnections.TryGetValue(userId, out var connectionId);
-                return connectionId;
-            }
+        
         public List<string> GetOnlineUsers()
         {
             return userConnections.Keys.ToList();
-        }
-        public IReadOnlyDictionary<string, string> GetAllConnections()
-            {
-                return userConnections;
-            }
+        } 
         }
     }

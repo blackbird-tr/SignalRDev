@@ -11,6 +11,8 @@
     <!-- Theme style -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/css/adminlte.min.css">
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <!-- SignalR Client -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/7.0.0/signalr.min.js"></script>
 </head>
 <body class="hold-transition sidebar-mini">
     <div class="wrapper">
@@ -146,6 +148,28 @@
     <!-- AdminLTE App -->
     <script src="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/js/adminlte.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @if (User.Identity.IsAuthenticated)
+    {
+        <script>
+            $(function () {
+                const connection = new signalR.HubConnectionBuilder()
+                   .withUrl("/Chat?userId=@User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value")
+                    .build();
+
+                connection.on("ReceiveMessage", function (user,message) {
+                    const li = document.createElement("li");
+                    li.textContent = `${user}: ${message}`;
+                    document.getElementById("messageList").appendChild(li);
+                });
+
+                connection.start();
+            });
+
+             
+        </script>
+    }
+
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
