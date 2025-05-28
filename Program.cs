@@ -37,7 +37,7 @@ builder.Services.AddIdentity<IdentityUser, IdentityRole>(options =>
 })
 .AddEntityFrameworkStores<ApplicationDbContext>()
 .AddDefaultTokenProviders();
-builder.Services.AddSingleton<MessageServices>();
+builder.Services.AddScoped<MessageServices>();
 
 // Cookie ayarları
 builder.Services.ConfigureApplicationCookie(options =>

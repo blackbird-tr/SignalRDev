@@ -65,16 +65,7 @@ namespace SignalRDev.Controllers
                     CreatedAt = DateTime.Now
                 };
 
-                _context.Messages.Add(message);
-                await _context.SaveChangesAsync();
-                
-                var connId = _messageServices.GetConnectionId(model.ReceiverId);
-                if (!string.IsNullOrWhiteSpace(connId))
-                {
-                    await _hubContext.Clients.Client(connId)
-                        .SendAsync("ReceivePrivateMessage", model.SenderId, model.Body);
-                }
-
+                await _messageServices.SendMessageAsync(message);
                 return RedirectToAction("GetMessages");
             }
 
@@ -97,6 +88,32 @@ namespace SignalRDev.Controllers
                 .ToListAsync();
 
             return View(messages);
+        }
+
+        [HttpGet]
+        public IActionResult SendToAll()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> SendToAll(string message)
+        {
+            if (string.IsNullOrWhiteSpace(message))
+            {
+                ModelState.AddModelError("", "Mesaj boş olamaz.");
+                return View();
+            }
+
+            var currentUser = await _userManager.GetUserAsync(User);
+            if (currentUser == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
+
+            await _messageServices.SendMessageToAllAsync(currentUser.Id, message);
+            return RedirectToAction("Index");
         }
     }
 } 

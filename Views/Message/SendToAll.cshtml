@@ -1,0 +1,34 @@
+@{
+    ViewData["Title"] = "Tüm Online Kullanıcılara Mesaj Gönder";
+}
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <h3 class="mb-0">Tüm Online Kullanıcılara Mesaj Gönder</h3>
+                </div>
+                <div class="card-body">
+                    <form asp-action="SendToAll" method="post">
+                        @Html.AntiForgeryToken()
+                        
+                        <div class="form-group">
+                            <label for="message">Mesajınız</label>
+                            <textarea class="form-control" id="message" name="message" rows="4" required></textarea>
+                        </div>
+
+                        <div class="form-group mt-3">
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-paper-plane"></i> Gönder
+                            </button>
+                            <a asp-action="Index" class="btn btn-secondary">
+                                <i class="fas fa-arrow-left"></i> Geri Dön
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> 

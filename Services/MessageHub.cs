@@ -18,7 +18,6 @@ namespace SignalRDev.Services
             {
                 _messageServices.AddConnection(userId, Context.ConnectionId);
             }
-
             return base.OnConnectedAsync();
         }
 
@@ -27,7 +26,5 @@ namespace SignalRDev.Services
             _messageServices.RemoveConnection(Context.ConnectionId);
             return base.OnDisconnectedAsync(exception);
         }
-
-        
     }
 }
